@@ -1,0 +1,175 @@
+@use '../../styles.scss' as st;
+
+h1 {
+  color: st.$primary;
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  text-align: center;
+}
+
+// 🧩 Formulário principal
+form {
+  background: st.$card-bg;
+  padding: 2.5rem 2rem;
+  border-radius: st.$radius;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    label {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: darken(st.$text, 10%);
+    }
+
+    input[type='text'],
+    input[type='number'] {
+      padding: 0.8rem 1rem;
+      border: 1px solid st.$border;
+      border-radius: st.$radius / 2;
+      font-size: 1rem;
+      transition: st.$transition;
+      background: #fafbff;
+
+      &:focus {
+        border-color: st.$primary;
+        box-shadow: 0 0 0 3px rgba(st.$primary, 0.2);
+        outline: none;
+        background: #fff;
+      }
+
+      &::placeholder {
+        color: lighten(st.$text, 40%);
+      }
+    }
+  }
+
+  // 🎓 Fieldset estilizado (grupo de radio)
+  fieldset {
+    border: none;
+    background: lighten(st.$primary, 45%);
+    border-radius: st.$radius / 2;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    legend {
+      font-size: 1rem;
+      font-weight: 600;
+      color: darken(st.$primary, 20%);
+      margin-bottom: 0.3rem;
+    }
+
+    label {
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      input[type='radio'] {
+        accent-color: st.$primary;
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    }
+  }
+
+  // 🚀 Botão estilizado
+  button {
+    background: st.$primary;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: st.$radius / 2;
+    padding: 0.9rem 1.2rem;
+    cursor: pointer;
+    transition: st.$transition;
+
+    &:hover {
+      background: st.$accent;
+      box-shadow: 0 4px 14px rgba(st.$primary, 0.4);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .modal-box {
+    background-color: #fff; // fundo branco
+    padding: 2rem 2.5rem; // espaçamento interno
+    border-radius: 12px; // cantos arredondados
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); // sombra
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Arial', sans-serif; // fonte limpa e legível
+    color: #333; // texto escuro
+
+    /* Cabeçalho */
+    p:first-child {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ddd; // separador visual
+      padding-bottom: 0.5rem;
+    }
+
+    /* Conteúdo das linhas */
+    p {
+      margin: 0.5rem 0;
+      line-height: 1.4;
+      font-size: 1rem;
+    }
+
+    /* Destaque para valores importantes */
+    p span {
+      font-weight: 600;
+      color: #000;
+    }
+  }
+}
+
+// 📱 Responsividade
+@media (max-width: 480px) {
+  form {
+    padding: 2rem 1.2rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}

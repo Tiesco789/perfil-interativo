@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+$bg: #f4f6fb;
+$card-bg: #fff;
+$primary: #4b6bfb;
+$accent: #5c8df7;
+$text: #2a2a2a;
+$border: #e1e5ee;
+$radius: 12px;
+$transition: all 0.3s ease;
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(135deg, #e3eeff, #f4f6fb);
+  color: $text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+}

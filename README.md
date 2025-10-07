@@ -1,59 +1,104 @@
-# Playground
+# 🧾 Formulário de Perfil — Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+Um pequeno projeto em **Angular** que demonstra o uso de formulários reativos, e um modal para apresentar as informações preenchidas pelo usuário.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Funcionalidades
 
+- Formulário reativo com validações;
+- Exibição dos dados do usuário em um modal ao enviar o formulário;
+- Cálculo automático do **ano de nascimento** com base na idade informada;
+- Fechamento do modal ao clicar fora da caixa ou pelo botão interno;
+
+---
+
+## 🧱 Estrutura do Projeto
+```
+src/
+├── app/
+│ ├── page-one/
+│ │ ├── page-one.ts # Lógica principal do formulário e modal
+│ │ ├── page-one.html # Estrutura HTML
+│ │ └── page-one.scss # Estilos modernos do modal e formulário
+│ └── app.module.ts # Configuração do módulo principal
+└── main.ts # Ponto de entrada da aplicação
+```
+
+---
+
+## 🧩 Tecnologias Utilizadas
+
+- **Angular 18+**
+- **TypeScript**
+- **Reactive Forms**
+- **SCSS**
+
+---
+
+## ⚙️ Como Executar
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/Tiesco789/perfil-interativo.git
+```
+
+Acesse a pasta do projeto:
+```bash
+cd formulario-perfil-angular
+```
+
+Instale as dependências:
+```bash
+npm install # or pnpm i | npm i | yarn
+```
+
+Inicie o servidor de desenvolvimento:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+Acesse no navegador:
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
+## 🧠 Lógica Principal
+- O formulário é construído com FormGroup e FormControl, garantindo reatividade e validações.
+- Ao enviar (onSubmit()), os dados do formulário são validados e armazenados em variáveis do componente.
+- O modal é exibido com *ngIf="showModal" e mostra os valores preenchidos pelo usuário.
+- O ano de nascimento é calculado dinamicamente:
+```typescript
+this.anoNasc = this.currentYear - Number(this.studentForm.value.age);
 ```
 
-## Building
+## 🎨 Estilo do Modal
+O modal é centralizado na tela, com fundo semitransparente e transição suave.
+Também pode ser fechado ao clicar fora da área principal:
 
-To build the project run:
-
-```bash
-ng build
+```html
+<div *ngIf="showModal" class="modal" (click)="closeModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <!-- Conteúdo do modal -->
+  </div>
+</div>
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Prints do projeto
+![alt text](prints/main.png)
+![alt text](prints/modal.png)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## 👨‍💻 Autor
+**Franccesco Antonio**
 
-## Running end-to-end tests
+Desenvolvedor Jr | Estudante de tecnologias Front-end (Angular, React)
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🏷️ Licença
+Este projeto é livre para estudo e modificação.
+Sinta-se à vontade para usar como base de aprendizado.
